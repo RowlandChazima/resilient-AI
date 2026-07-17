@@ -1,14 +1,14 @@
-from app.agent.router import router_chain
+from app.agent.agent import Agent
 
-questions = [
-    "Evaluate 12*15?",
-    "Tell me more about Kenya as a country",
-    "Who are you?",
-]
+agent = Agent()
 
-for question in questions:
-    decision = router_chain.invoke({"question": question})
+while True:
+    question = input("\nYou: ")
 
-    print(f"Question:{question}")
-    print(f"Decision:{decision}")
-    print("-" * 40)
+    if question.lower() == "exit":
+        break
+
+    response = agent.run(question)
+
+    print(f"\nSource : {response['source']}")
+    print(f"Answer : {response['answer']}")

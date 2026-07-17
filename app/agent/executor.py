@@ -5,7 +5,7 @@ from app.tools.registry import TOOLS
 
 
 class Executor:
-    def executer(self, decision: str, question: str):
+    def execute(self, decision: str, question: str):
 
         if decision == "none":
             response = llm.invoke(question)
